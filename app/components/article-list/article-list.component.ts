@@ -36,6 +36,7 @@ export class ArticleList implements OnInit {
     this.guardianService.onSearch(inputValue)
       .subscribe(result => {
         this.articles = result;
+        this.updatePipe(this.searchTerms)
       }, error => console.error('Error loading articles', error));
   }
 

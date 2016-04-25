@@ -14,9 +14,9 @@
 
   <div *ngIf="articles?.length > 0" class="collection">
     <div class="collection-item row">
-      <h6 class='col s6'> Web Title</h6>
+      <h6 class='col s6'> Article Title</h6>
       <h6 class='col s3'> Section Name</h6>
-      <h6 class='col s3'> Web Publication Date</h6>
+      <h6 class='col s3'> Publication Date</h6>
     </div>
     <a class="collection-item row" target="_blank" href="{{article.webUrl}}" *ngFor="#article of articles | search: searchTerms">
       <div class='col s6'> {{ article.webTitle }}</div>
