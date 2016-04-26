@@ -26,9 +26,12 @@ export class ArticleList implements OnInit {
     this.searchBox
       .valueChanges
       .debounceTime(200)
-      .filter(inputValue => inputValue !== '')
       .subscribe((inputValue) => {
-        this.reloadGuardianSearch(inputValue);
+        if (inputValue === '') {
+          this.clearArticles();
+        } else {
+          this.reloadGuardianSearch(inputValue);
+        }
       })
   }
 
@@ -47,5 +50,10 @@ export class ArticleList implements OnInit {
 
   stringAsDate(dateStr) {
     return (dateStr !== undefined) ? new Date(dateStr) : new Date();
+  }
+
+  clearArticles() {
+    this.articles = [];
+    this.searchTerms = {};
   }
 }
